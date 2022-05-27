@@ -1,0 +1,12 @@
+﻿create procedure all_del
+as
+begin
+DELETE FROM Worker 
+   WHERE WorkerID>0
+DELETE FROM Work
+   WHERE WorkID>0
+DELETE FROM WorkType
+   WHERE WorkTypeID>0
+DELETE FROM [dbo].[Transaction]
+   WHERE TransactionID>0
+end;

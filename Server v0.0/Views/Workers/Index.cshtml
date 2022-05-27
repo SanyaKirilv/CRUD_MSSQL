@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Server_v0._0.Models.Worker>
+
+@{
+    ViewData["Title"] = "Рабочие";
+}
+
+<h1>Рабочие</h1>
+
+<p>
+    <a class="form-group" asp-action="Create">
+        <input type="submit" value="Добавить запись" class="btn btn-outline-success" />
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a class="form-group" asp-action="Edit" asp-route-id="@item.WorkerID">
+                    <input type="submit" value="Редактировать" class="btn btn-outline-success" />
+                </a>
+                <a class="form-group" asp-action="Details" asp-route-id="@item.WorkerID">
+                    <input type="submit" value="Информация" class="btn btn-outline-secondary" />
+                </a>
+                <a class="form-group" asp-action="Delete" asp-route-id="@item.WorkerID">
+                    <input type="submit" value="Удалить" class="btn btn-outline-danger" />
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

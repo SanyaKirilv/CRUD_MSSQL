@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Server_v0._0.Transaction>
+
+@{
+    ViewData["Title"] = "Транзакции";
+}
+
+<h1>Транзакции</h1>
+
+<p>
+    <a class="form-group" asp-action="Create">
+        <input type="submit" value="Добавить запись" class="btn btn-outline-success" />
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Worker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Worker.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Work.WorkID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkType.Name)
+            </td>
+            <td>
+                <a class="form-group" asp-action="Edit" asp-route-id="@item.TransactionID">
+                    <input type="submit" value="Редактировать" class="btn btn-outline-success" />
+                </a>
+                <a class="form-group" asp-action="Details" asp-route-id="@item.TransactionID">
+                    <input type="submit" value="Информация" class="btn btn-outline-secondary" />
+                </a>
+                <a class="form-group" asp-action="Delete" asp-route-id="@item.TransactionID">
+                    <input type="submit" value="Удалить" class="btn btn-outline-danger" />
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

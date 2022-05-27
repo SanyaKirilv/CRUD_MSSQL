@@ -1,0 +1,43 @@
+﻿@model Server_v0._0.Transaction
+
+@{
+    ViewData["Title"] = "Информация";
+}
+
+<h1>Информация</h1>
+
+<div>
+    <h4>Транзакция</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Worker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Worker.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Work)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Work.WorkID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WorkType.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="form-group" asp-action="Edit" asp-route-id="@Model.TransactionID">
+        <input type="submit" value=" Изменить запись " class="btn btn-outline-success" />
+    </a>
+    <div>
+        <div class="border-top my-3"></div>
+        <a class="form-group" asp-action="Index">
+            <input type="submit" value="Вернуться назад" class="btn btn-outline-secondary" />
+        </a>
+    </div>
+</div>

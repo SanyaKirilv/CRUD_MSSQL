@@ -1,0 +1,7 @@
+﻿create trigger EmailGen
+ON Worker
+after insert, update
+AS
+UPDATE Worker
+SET Email = Convert(varchar(20), (SELECT WorkerID FROM inserted)) + LastName + '@Comp.com'
+WHERE WorkerID = (SELECT WorkerID FROM inserted)

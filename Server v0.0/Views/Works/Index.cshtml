@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Server_v0._0.Models.Work>
+
+@{
+    ViewData["Title"] = "Работы";
+}
+
+<h1>Работы</h1>
+
+<p>
+    <a class="form-group" asp-action="Create">
+        <input type="submit" value="Добавить запись" class="btn btn-outline-success" />
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkersCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkersCount)
+            </td>
+            <td>
+                <a class="form-group" asp-action="Edit" asp-route-id="@item.WorkID">
+                    <input type="submit" value="Редактировать" class="btn btn-outline-success" />
+                </a>
+                <a class="form-group" asp-action="Details" asp-route-id="@item.WorkID">
+                    <input type="submit" value="Информация" class="btn btn-outline-secondary" />
+                </a>
+                <a class="form-group" asp-action="Delete" asp-route-id="@item.WorkID">
+                    <input type="submit" value="Удалить" class="btn btn-outline-danger" />
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

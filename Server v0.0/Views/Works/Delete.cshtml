@@ -1,0 +1,43 @@
+﻿@model Server_v0._0.Models.Work
+
+@{
+    ViewData["Title"] = "Удалить запись";
+}
+
+<h1>Удалить запись</h1>
+
+<h3>Вы уверены что хотите удалить эту запись?</h3>
+<div>
+    <h4>Работа</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkersCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkersCount)
+        </dd>
+    </dl>
+    <a class="form-group" asp-action="Delete">
+        <input type="hidden" asp-for="WorkID" />
+        <input type="submit" value=" Удалить запись " class="btn btn-danger" />
+    </a>
+    <div>
+        <div class="border-top my-3"></div>
+        <a class="form-group" asp-action="Index">
+            <input type="submit" value="Вернуться назад" class="btn btn-outline-secondary" />
+        </a>
+    </div>
+</div>
